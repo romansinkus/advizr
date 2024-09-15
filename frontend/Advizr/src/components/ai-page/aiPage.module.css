@@ -15,6 +15,14 @@
   margin-right: 10px;
 }
 
+.school-name {
+  font-size: 1.9em;
+  /* text-decoration: underline;
+  text-underline-offset: 30px;
+  
+  text-decoration-color: rgba(255, 255, 255, 0.4); */
+}
+
 .ai-input {
   width: 40%;
   height: 40px;
@@ -31,7 +39,7 @@
 
 .section-1 {
   text-align: center;
-  height: 80dvh;
+  height: 50dvh;
 }
 
 .typing {
@@ -42,4 +50,23 @@
   text-decoration: underline;
   text-underline-offset: 5px;
   text-decoration-color: #80ed99;
+}
+
+.response {
+  display: flex;
+  /* border-top: 1px solid black; */
+  padding: 10px;
+  align-items: center;
+  font-weight: 400;
+justify-content: center;
+padding-right: 40px;
+padding-left: 40px;
+width: 50%;
+height: 200px;
+margin-top: -100px;
+margin-left: 22%;
+background-color: #1f2a53;
+border: 1px solid transparent;
+border-radius: 20px;
+
 }

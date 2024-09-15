@@ -1,7 +1,55 @@
-.frontpage-format {
+.homepage-format {
   display: grid;
   align-items: center;
   justify-items: center;
   justify-content: space-around;
   grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.students {
+  width: 800px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.slogan {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1;
+  font-weight: 750;
+  font-size: 85px;
+}
+
+.emphasis {
+  color: #80ed99;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select select {
+  width: 50%;
+  height: 40px;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  appearance: none;
+  background-color: #FFFF;
+  cursor: pointer;
+  color: #757575;
+}
+
+.custom-select select:focus {
+  outline: none;
+  border: none;
+}
+
+.custom-select option {
+  padding: 8px 10px;
+  font-size: 16px;
 }
