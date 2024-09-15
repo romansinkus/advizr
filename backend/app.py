@@ -1,21 +1,28 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+from rag import callToRag
 
 app = Flask(__name__)
+CORS(app)  # This allows the frontend to make requests to the backend from a different origin
 
+# def foo(message, history):
+#     print("THIS IS A TEST")
+#     return "THIS IS A TEST"
 
-# Endpoint to receive a message and respond with Cohere
-@app.route('/api/message', methods=['POST'])
-def handle_message():
-    data = request.json  # Receive JSON data from frontend
-    message = data.get('message')  # Extract the message from the JSON
-
-    print("THIS IS THE MESSAGE", message)
+@app.route('/advisor', methods=['POST'])
+def send_message():
     
-    return jsonify({'response': response.generations[0].text})  # Return response to frontend
+    data = request.get_json()
+    message = data.get('message')
+    history = data.get('history')
+    
+    # Call the callToRag function and get ragMessage
+    ragMessage = callToRag(message, history)
+    print("ragMessage", ragMessage)
+    print("type of ragMessage", type(ragMessage))
 
-    # Cohere stuff here
-
-    return jsonify({'response': "RESPOND WITH COHERE OUTPUT"})  # Return response to frontend
+    # Send the output 'bar' back to the frontend
+    return jsonify({'ragMessage': ragMessage.text})
 
 if __name__ == '__main__':
     app.run(debug=True)
