@@ -11,7 +11,7 @@ def handle_message():
 
     print("THIS IS THE MESSAGE", message)
     
-    # return jsonify({'response': response.generations[0].text})  # Return response to frontend
+    return jsonify({'response': response.generations[0].text})  # Return response to frontend
 
     # Cohere stuff here
 
