@@ -8,6 +8,10 @@ import Typed from "typed.js";
 
 const AiPage = () => {
   const [message, setMessage] = useState("");
+  const [submitted, SetSubmitted] = useState(false);
+  const [jsonResult, setJsonResult] = useState(null);
+  const [stringResult, setStringResult] = useState("");
+
   //   const [response, setResponse] = useState("");
   //   const [pastResults, setPastResults] = useState("");
 
@@ -16,14 +20,15 @@ const AiPage = () => {
   useEffect(() => {
     const options = {
       strings: [
-        "Hello World!",
-        "Welcome to Typed.js",
-        "Enjoy typing animations!",
+        "course prerequisites",
+        "professor ratings",
+        "average course grades",
+        "a course description",
       ],
       typeSpeed: 50, // typing speed in milliseconds
-      backSpeed: 25, // backspacing speed in milliseconds
+      backSpeed: 30, // backspacing speed in milliseconds
       backDelay: 1000, // delay before starting to backspace
-      startDelay: 500, // delay before starting typing
+      startDelay: 0, // delay before starting typing
       loop: true, // whether or not to loop the animation
     };
 
@@ -38,6 +43,8 @@ const AiPage = () => {
   const location = useLocation();
 
   const { school } = location.state || {};
+
+  //add a toggle inside of sendmessage
 
   //   const sendMessage = async () => {
   //     try {
@@ -55,28 +62,70 @@ const AiPage = () => {
   //     }
   //   };
 
+  const jsonify = (result) => {
+    if (!(result instanceof Object)) {
+      // Checking if result is not an object (i.e., it's not JSON)
+      setStringResult(result);
+    } else {
+      try {
+        setJsonResult(result); // If it's already a valid object/JSON
+      } catch (error) {
+        console.error("Invalid JSON:", error);
+      }
+    }
+  };
+
   return (
     <>
       <section className="section-1">
+        {/* <p>School</p> */}
         <h1>{school}</h1>
         <div className="question-prompt">
-          <h1>Ask Advizr</h1>
-          <span ref={el}></span>
+          <h1>Ask</h1>
+          <h1 className="green-underline">Advizr</h1>
+          <h1>for</h1>
+          <h1 ref={el} className="typing"></h1>
         </div>
         <div>
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder=""
+            placeholder="Type here..."
             className="ai-input"
           />
-
           {/* {response && <p>Response: {response}</p>} */}
         </div>
       </section>
+
+      {submitted ? (
+        <section>
+          <div>{stringResult}</div>
+          <div>{jsonResult.course}</div>
+          <div>{jsonResult.grade}</div>
+          <div>{jsonResult.professor}</div>
+          <div>{jsonResult.description}</div>
+          <div>{jsonResult.grade}</div>
+        </section>
+      ) : null}
     </>
   );
 };
+
+/*
+- pre req
+- co req
+- dependent courses (after that course)
+- grades*
+- professors (rating of professor)*
+- description
+- Course code
+- Course name
+- Credits
+- 
+
+
+
+*/
 
 export default AiPage;

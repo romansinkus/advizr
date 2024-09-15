@@ -1,10 +1,22 @@
+.inria-sans-regular {
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .question-prompt {
   display: flex;
-  font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6em;
+}
+
+.question-prompt > * {
+  margin-right: 10px;
 }
 
 .ai-input {
-  width: 100%;
+  width: 40%;
   height: 40px;
   border-radius: 10px;
   border: none;
@@ -18,8 +30,16 @@
 }
 
 .section-1 {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
+  text-align: center;
+  height: 80dvh;
+}
+
+.typing {
+  color: #80ed99;
+}
+
+.green-underline {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: #80ed99;
 }
