@@ -1,0 +1,34 @@
+# Ignore __pycache__ directories and .pyc files
+backend/__pycache__/
+*.pyc
+
+# Ignore virtual environments
+backend/venv/
+venv/
+
+# Node modules for frontend
+node_modules/
+
+# Ignore build artifacts (depending on your project setup)
+frontend/dist/
+frontend/build/
+
+# Ignore frontend assets
+frontend/src/assets/
+frontend/public/
+
+# Optional: Ignore .env files if you're using them
+*.env
+
+# Ignore lock files if you want to control versions manually (optional)
+package-lock.json
+
+# Ignore Vite cache (if you're using Vite)
+frontend/node_modules/
+frontend/vite.config.js
+frontend/.vite/
+
+# Custom attributes for MacOS
+**/.DS_Store
+.DS_Store
+

@@ -67,7 +67,7 @@ const AiPage = () => {
     setMessage(e.target.value)
   }
 
-  const TypingAnimation = ({ response, speed = 100}) => {
+  const TypingAnimation = ({ response, speed = 30}) => {
     const [index, setIndex] = useState(0);
     const [displayedText, setDisplayedText] = useState(""); // Progressive text state
 
