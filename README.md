@@ -21,18 +21,29 @@ go to localhost:5137
 
 ## Guide
 
-Copy repository
+create virtual environment in command line
 ```
-https://github.com/romansinkus/advizr.git
+python3.9 -m venv ./venv
+source venv/bin/activate
 ```
 
-cd into backend and run the backend
+clone the repo
 ```
-python .\app
+git clone https://github.com/romansinkus/advizr.git
+```
+
+cd into backend, install dependencies, and run
+```
+cd advizr/backend
+pip install Flask Flask-Cors cohere
+Add descriptions.py
+python3.9 ./app
 ```
 
 make a new terminal and cd into the frontend
 ```
+cd advizr/frontend/Advizr
 npm install
 npm run dev
 ```
+
